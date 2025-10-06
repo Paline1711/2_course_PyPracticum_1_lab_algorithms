@@ -1,7 +1,5 @@
-from tkinter.ttk import Label
-
 import pandas as pd
-df = pd.read_csv('C:\\Users\\1132243257\\PycharmProjects\\lab1_pandas\\.venv\\titanic.csv')
+df = pd.read_csv('titanic.csv')
 #Task 2.1
 median_age = df['Age'].median()
 print(f"Средний возраст: {median_age}")
@@ -18,6 +16,5 @@ def get_age_group(age):
     elif 18 < Age <= 65:
         return
 
-#lj,fdktybt cnjk,wf
 df['AgeGroup'] = [10, 11, 12]
 print(df)

@@ -1,5 +1,5 @@
 import pandas as pd
-df = pd.read_csv('C:\\Users\\1132243257\\PycharmProjects\\lab1_pandas\\.venv\\titanic.csv')
+df = pd.read_csv('titanic.csv')
 print(df.head(7))
 print("info")
 print(df.info())
