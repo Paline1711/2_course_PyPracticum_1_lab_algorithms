@@ -1,20 +1,30 @@
+
 import pandas as pd
+
+# Загрузка данных (пример с данными Titanic)
 df = pd.read_csv('titanic.csv')
-#Task 2.1
+
+# 1. Заполнение пропусков в Age медианным значением  
 median_age = df['Age'].median()
-print(f"Средний возраст: {median_age}")
+df['Age'] = df['Age'].fillna(median_age)
 
-print(df['Age'].fillna(median_age, inplace=True))
-
-print("Информация о DataFrame после заполнения пропусков")
+# Проверка, что пропусков больше нет  
+print("Информация о данных после заполнения пропусков:")
 print(df.info())
 
-#Task 2.2
+# 2. Создание функции для возрастных групп  
 def get_age_group(age):
-    if age>18:
-        return(Child)
-    elif 18 < Age <= 65:
-        return
+    """Функция для определения возрастной группы"""
+    if age < 18:
+        return "Ребенок"
+    elif 18 <= age <= 65:
+        return "Взрослый"
+    else:
+        return "Пожилой"
 
-df['AgeGroup'] = [10, 11, 12]
-print(df)
+# 3. Добавление столбца AgeGroup и применение функции  
+df['AgeGroup'] = df['Age'].apply(get_age_group)
+
+# Вывод первых 10 строк для проверки  
+print("\nПервые 10 строк с возрастом и возрастной группой:")
+print(df[['Age', 'AgeGroup']].head(10))
